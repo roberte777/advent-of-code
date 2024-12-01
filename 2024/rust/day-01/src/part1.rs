@@ -17,6 +17,7 @@ pub fn process(input: &str) -> miette::Result<String> {
     let res: u32 = list.map(|v| v.0.abs_diff(v.1)).sum();
     return Ok(format!("{}", res));
 }
+
 pub fn create_lists(input: &str) -> (Vec<u32>, Vec<u32>) {
     // Use `terminated` to ensure each line ends with a newline
     let line_parser = terminated(parse_line, opt(newline));
@@ -28,6 +29,7 @@ pub fn create_lists(input: &str) -> (Vec<u32>, Vec<u32>) {
 
     (vec1, vec2)
 }
+
 fn parse_line(input: &str) -> IResult<&str, (u32, u32)> {
     // Use separated_pair to parse two numbers separated by spaces
     let (remaining, (num1, num2)) = separated_pair(
