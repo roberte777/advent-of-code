@@ -77,16 +77,6 @@ impl Report {
         true
     }
     pub fn is_safe_2(&self) -> bool {
-        // let k = self.levels.len();
-        // let perm = self.levels.iter().combinations(k);
-        // dbg!(&perm.try_len());
-        // for p in perm {
-        //     dbg!(&p);
-        //     if !Self::is_safe_inner(p) {
-        //         return false;
-        //     }
-        // }
-        //
         if !Self::is_safe_inner(self.levels.clone()) {
             for index in 0..self.levels.len() {
                 let mut new_report = self.levels.clone();
